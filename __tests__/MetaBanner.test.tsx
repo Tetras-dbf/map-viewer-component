@@ -9,13 +9,22 @@ afterEach(() => {
 
 describe('MetaBanner', () => {
   it('renders nothing while meta.json is unavailable', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false }));
+    const fetchMock = vi.fn().mockResolvedValue({ ok: false });
+    vi.stubGlobal('fetch', fetchMock);
 
     const { container } = render(<MetaBanner />);
 
     await waitFor(() => {
-      expect(container.firstChild).toBeNull();
+      expect(fetchMock).toHaveBeenCalledWith('./meta.json');
     });
+
+    // Flush the fetch().then().then() chain: a macrotask (setTimeout) only
+    // runs after every currently-queued microtask has drained, regardless of
+    // how many .then() hops are chained, so this deterministically waits out
+    // the whole async chain without coupling the test to its exact depth.
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect(container.firstChild).toBeNull();
   });
 
   it('renders the deploy metadata once meta.json resolves', async () => {
