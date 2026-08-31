@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import Mirador from 'mirador';
 
 export interface MapViewerProps {
@@ -9,29 +9,34 @@ export interface MapViewerProps {
 
 export function MapViewer({ manifestId }: MapViewerProps) {
   const baseId = useId().replace(/:/g, '');
-  const [instanceCount, setInstanceCount] = useState(0);
-  const [prevManifestId, setPrevManifestId] = useState<string | undefined>(undefined);
-
-  if (prevManifestId !== manifestId) {
-    setPrevManifestId(manifestId);
-    setInstanceCount((count) => count + 1);
-  }
-
-  const containerId = `map-viewer-${baseId}-${instanceCount}`;
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const instanceCountRef = useRef(0);
 
   useEffect(() => {
-    Mirador.viewer({
-      id: containerId,
+    const wrapper = wrapperRef.current;
+    if (!wrapper) {
+      return undefined;
+    }
+
+    instanceCountRef.current += 1;
+    const container = document.createElement('div');
+    container.id = `map-viewer-${baseId}-${instanceCountRef.current}`;
+    container.style.position = 'relative';
+    container.style.height = '100%';
+    wrapper.appendChild(container);
+
+    const viewer = Mirador.viewer({
+      id: container.id,
       windows: [{ manifestId }],
     });
 
     return () => {
-      const cleanupContainer = document.getElementById(containerId);
-      if (cleanupContainer) {
-        cleanupContainer.replaceChildren();
-      }
+      queueMicrotask(() => {
+        viewer.unmount();
+        container.remove();
+      });
     };
-  }, [containerId, manifestId]);
+  }, [baseId, manifestId]);
 
-  return <div key={containerId} id={containerId} />;
+  return <div ref={wrapperRef} style={{ position: 'relative', height: '100%' }} />;
 }
