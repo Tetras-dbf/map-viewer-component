@@ -1,4 +1,4 @@
-import { useEffect, useId } from 'react';
+import { useEffect, useId, useState } from 'react';
 import Mirador from 'mirador';
 
 export interface MapViewerProps {
@@ -8,14 +8,18 @@ export interface MapViewerProps {
 }
 
 export function MapViewer({ manifestId }: MapViewerProps) {
-  const containerId = `map-viewer-${useId().replace(/:/g, '')}`;
+  const baseId = useId().replace(/:/g, '');
+  const [instanceCount, setInstanceCount] = useState(0);
+  const [prevManifestId, setPrevManifestId] = useState<string | undefined>(undefined);
+
+  if (prevManifestId !== manifestId) {
+    setPrevManifestId(manifestId);
+    setInstanceCount((count) => count + 1);
+  }
+
+  const containerId = `map-viewer-${baseId}-${instanceCount}`;
 
   useEffect(() => {
-    const container = document.getElementById(containerId);
-    if (container) {
-      container.replaceChildren();
-    }
-
     Mirador.viewer({
       id: containerId,
       windows: [{ manifestId }],
@@ -29,5 +33,5 @@ export function MapViewer({ manifestId }: MapViewerProps) {
     };
   }, [containerId, manifestId]);
 
-  return <div id={containerId} />;
+  return <div key={containerId} id={containerId} />;
 }
