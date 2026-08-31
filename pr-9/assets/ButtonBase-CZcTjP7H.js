@@ -1,0 +1,75 @@
+import{r as e}from"./rolldown-runtime-hePW80VL.js";import{N as t,a as n,an as r,in as i,t as a}from"./styled-oV5hDWYh.js";import{c as o,f as s,h as c,m as l,n as u,o as d,p as f,r as p,s as m}from"./createSimplePaletteValueFilter-Bz7qJ2tV.js";var h=e(r()),g=typeof window<`u`?h.useLayoutEffect:h.useEffect;function _(){let e=o(n);return e.$$material||e}function v(e){return m(`MuiSvgIcon`,e)}d(`MuiSvgIcon`,[`root`,`colorPrimary`,`colorSecondary`,`colorAction`,`colorError`,`colorDisabled`,`fontSizeInherit`,`fontSizeSmall`,`fontSizeMedium`,`fontSizeLarge`]);var y=i(),b=e=>{let{color:t,fontSize:n,classes:r}=e,i={root:[`root`,t!==`inherit`&&`color${c(t)}`,`fontSize${c(n)}`]};return f(i,v,r)},x=a(`svg`,{name:`MuiSvgIcon`,slot:`Root`,overridesResolver:(e,t)=>{let{ownerState:n}=e;return[t.root,n.color!==`inherit`&&t[`color${c(n.color)}`],t[`fontSize${c(n.fontSize)}`]]}})(p(({theme:e})=>({userSelect:`none`,width:`1em`,height:`1em`,display:`inline-block`,flexShrink:0,transition:e.transitions?.create?.(`fill`,{duration:(e.vars??e).transitions?.duration?.shorter}),variants:[{props:e=>!e.hasSvgAsChild,style:{fill:`currentColor`}},{props:{fontSize:`inherit`},style:{fontSize:`inherit`}},{props:{fontSize:`small`},style:{fontSize:e.typography?.pxToRem?.(20)||`1.25rem`}},{props:{fontSize:`medium`},style:{fontSize:e.typography?.pxToRem?.(24)||`1.5rem`}},{props:{fontSize:`large`},style:{fontSize:e.typography?.pxToRem?.(35)||`2.1875rem`}},...Object.entries((e.vars??e).palette).filter(([,e])=>e&&e.main).map(([t])=>({props:{color:t},style:{color:(e.vars??e).palette?.[t]?.main}})),{props:{color:`action`},style:{color:(e.vars??e).palette?.action?.active}},{props:{color:`disabled`},style:{color:(e.vars??e).palette?.action?.disabled}},{props:{color:`inherit`},style:{color:void 0}}]}))),S=h.forwardRef(function(e,t){let n=u({props:e,name:`MuiSvgIcon`}),{children:r,className:i,color:a=`inherit`,component:o=`svg`,fontSize:s=`medium`,htmlColor:c,inheritViewBox:d=!1,titleAccess:f,viewBox:p=`0 0 24 24`,...m}=n,g=h.isValidElement(r)&&r.type===`svg`,_={...n,color:a,component:o,fontSize:s,instanceFontSize:e.fontSize,inheritViewBox:d,viewBox:p,hasSvgAsChild:g},v={};d||(v.viewBox=p);let S=b(_);return(0,y.jsxs)(x,{as:o,className:l(S.root,i),focusable:`false`,color:c,"aria-hidden":!f||void 0,role:f?`img`:void 0,ref:t,...v,...m,...g&&r.props,ownerState:_,children:[g?r.props.children:r,f?(0,y.jsx)(`title`,{children:f}):null]})});S.muiName=`SvgIcon`;function C(e,t){function n(t,n){return(0,y.jsx)(S,{"data-testid":void 0,ref:n,...t,children:e})}return n.muiName=S.muiName,h.memo(h.forwardRef(n))}function w(e){let t=h.useRef(e);return g(()=>{t.current=e}),h.useRef((...e)=>(0,t.current)(...e)).current}var T=w;function E(...e){let t=h.useRef(void 0),n=h.useCallback(t=>{let n=e.map(e=>{if(e==null)return null;if(typeof e==`function`){let n=e,r=n(t);return typeof r==`function`?r:()=>{n(null)}}return e.current=t,()=>{e.current=null}});return()=>{n.forEach(e=>e?.())}},e);return h.useMemo(()=>e.every(e=>e==null)?null:e=>{t.current&&=(t.current(),void 0),e!=null&&(t.current=n(e))},e)}var D=E;function O(e){try{return e.matches(`:focus-visible`)}catch{}return!1}var k={};function A(e,t){let n=h.useRef(k);return n.current===k&&(n.current=e(t)),n}var ee=class e{static create(){return new e}static use(){let t=A(e.create).current,[n,r]=h.useState(!1);return t.shouldMount=n,t.setShouldMount=r,h.useEffect(t.mountEffect,[n]),t}constructor(){this.ref={current:null},this.mounted=null,this.didMount=!1,this.shouldMount=!1,this.setShouldMount=null}mount(){return this.mounted||(this.mounted=ne(),this.shouldMount=!0,this.setShouldMount(this.shouldMount)),this.mounted}mountEffect=()=>{this.shouldMount&&!this.didMount&&this.ref.current!==null&&(this.didMount=!0,this.mounted.resolve())};start(...e){this.mount().then(()=>this.ref.current?.start(...e))}stop(...e){this.mount().then(()=>this.ref.current?.stop(...e))}pulsate(...e){this.mount().then(()=>this.ref.current?.pulsate(...e))}};function te(){return ee.use()}function ne(){let e,t,n=new Promise((n,r)=>{e=n,t=r});return n.resolve=e,n.reject=t,n}function j(e,t){if(e==null)return{};var n={};for(var r in e)if({}.hasOwnProperty.call(e,r)){if(t.indexOf(r)!==-1)continue;n[r]=e[r]}return n}function M(e,t){return M=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e},M(e,t)}function N(e,t){e.prototype=Object.create(t.prototype),e.prototype.constructor=e,M(e,t)}var P=h.createContext(null);function F(e){if(e===void 0)throw ReferenceError(`this hasn't been initialised - super() hasn't been called`);return e}function I(e,t){var n=function(e){return t&&(0,h.isValidElement)(e)?t(e):e},r=Object.create(null);return e&&h.Children.map(e,function(e){return e}).forEach(function(e){r[e.key]=n(e)}),r}function L(e,t){e||={},t||={};function n(n){return n in t?t[n]:e[n]}var r=Object.create(null),i=[];for(var a in e)a in t?i.length&&(r[a]=i,i=[]):i.push(a);var o,s={};for(var c in t){if(r[c])for(o=0;o<r[c].length;o++){var l=r[c][o];s[r[c][o]]=n(l)}s[c]=n(c)}for(o=0;o<i.length;o++)s[i[o]]=n(i[o]);return s}function R(e,t,n){return n[t]==null?e.props[t]:n[t]}function z(e,t){return I(e.children,function(n){return(0,h.cloneElement)(n,{onExited:t.bind(null,n),in:!0,appear:R(n,`appear`,e),enter:R(n,`enter`,e),exit:R(n,`exit`,e)})})}function re(e,t,n){var r=I(e.children),i=L(t,r);return Object.keys(i).forEach(function(a){var o=i[a];if((0,h.isValidElement)(o)){var s=a in t,c=a in r,l=t[a],u=(0,h.isValidElement)(l)&&!l.props.in;c&&(!s||u)?i[a]=(0,h.cloneElement)(o,{onExited:n.bind(null,o),in:!0,exit:R(o,`exit`,e),enter:R(o,`enter`,e)}):!c&&s&&!u?i[a]=(0,h.cloneElement)(o,{in:!1}):c&&s&&(0,h.isValidElement)(l)&&(i[a]=(0,h.cloneElement)(o,{onExited:n.bind(null,o),in:l.props.in,exit:R(o,`exit`,e),enter:R(o,`enter`,e)}))}}),i}var B=Object.values||function(e){return Object.keys(e).map(function(t){return e[t]})},V={component:`div`,childFactory:function(e){return e}},H=function(e){N(n,e);function n(t,n){var r=e.call(this,t,n)||this;return r.state={contextValue:{isMounting:!0},handleExited:r.handleExited.bind(F(r)),firstRender:!0},r}var r=n.prototype;return r.componentDidMount=function(){this.mounted=!0,this.setState({contextValue:{isMounting:!1}})},r.componentWillUnmount=function(){this.mounted=!1},n.getDerivedStateFromProps=function(e,t){var n=t.children,r=t.handleExited;return{children:t.firstRender?z(e,r):re(e,n,r),firstRender:!1}},r.handleExited=function(e,n){var r=I(this.props.children);e.key in r||(e.props.onExited&&e.props.onExited(n),this.mounted&&this.setState(function(n){var r=t({},n.children);return delete r[e.key],{children:r}}))},r.render=function(){var e=this.props,t=e.component,n=e.childFactory,r=j(e,[`component`,`childFactory`]),i=this.state.contextValue,a=B(this.state.children).map(n);return delete r.appear,delete r.enter,delete r.exit,t===null?h.createElement(P.Provider,{value:i},a):h.createElement(P.Provider,{value:i},h.createElement(t,r,a))},n}(h.Component);H.propTypes={},H.defaultProps=V;var U=[];function W(e){h.useEffect(e,U)}var G=class e{static create(){return new e}currentId=null;start(e,t){this.clear(),this.currentId=setTimeout(()=>{this.currentId=null,t()},e)}clear=()=>{this.currentId!==null&&(clearTimeout(this.currentId),this.currentId=null)};disposeEffect=()=>this.clear};function K(){let e=A(G.create).current;return W(e.disposeEffect),e}function q(e){let{className:t,classes:n,pulsate:r=!1,rippleX:i,rippleY:a,rippleSize:o,in:s,onExited:c,timeout:u}=e,[d,f]=h.useState(!1),p=l(t,n.ripple,n.rippleVisible,r&&n.ripplePulsate),m={width:o,height:o,top:-(o/2)+a,left:-(o/2)+i},g=l(n.child,d&&n.childLeaving,r&&n.childPulsate);return!s&&!d&&f(!0),h.useEffect(()=>{if(!s&&c!=null){let e=setTimeout(c,u);return()=>{clearTimeout(e)}}},[c,s,u]),(0,y.jsx)(`span`,{className:p,style:m,children:(0,y.jsx)(`span`,{className:g})})}var J=d(`MuiTouchRipple`,[`root`,`ripple`,`rippleVisible`,`ripplePulsate`,`child`,`childLeaving`,`childPulsate`]),Y=550,ie=s`
+  0% {
+    transform: scale(0);
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+`,ae=s`
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+`,oe=s`
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.92);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+`,X=a(`span`,{name:`MuiTouchRipple`,slot:`Root`})({overflow:`hidden`,pointerEvents:`none`,position:`absolute`,zIndex:0,top:0,right:0,bottom:0,left:0,borderRadius:`inherit`}),se=a(q,{name:`MuiTouchRipple`,slot:`Ripple`})`
+  opacity: 0;
+  position: absolute;
+
+  &.${J.rippleVisible} {
+    opacity: 0.3;
+    transform: scale(1);
+    animation-name: ${ie};
+    animation-duration: ${Y}ms;
+    animation-timing-function: ${({theme:e})=>e.transitions.easing.easeInOut};
+  }
+
+  &.${J.ripplePulsate} {
+    animation-duration: ${({theme:e})=>e.transitions.duration.shorter}ms;
+  }
+
+  & .${J.child} {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+
+  & .${J.childLeaving} {
+    opacity: 0;
+    animation-name: ${ae};
+    animation-duration: ${Y}ms;
+    animation-timing-function: ${({theme:e})=>e.transitions.easing.easeInOut};
+  }
+
+  & .${J.childPulsate} {
+    position: absolute;
+    /* @noflip */
+    left: 0px;
+    top: 0;
+    animation-name: ${oe};
+    animation-duration: 2500ms;
+    animation-timing-function: ${({theme:e})=>e.transitions.easing.easeInOut};
+    animation-iteration-count: infinite;
+    animation-delay: 200ms;
+  }
+`,ce=h.forwardRef(function(e,t){let{center:n=!1,classes:r={},className:i,...a}=u({props:e,name:`MuiTouchRipple`}),[o,s]=h.useState([]),c=h.useRef(0),d=h.useRef(null);h.useEffect(()=>{d.current&&=(d.current(),null)},[o]);let f=h.useRef(!1),p=K(),m=h.useRef(null),g=h.useRef(null),_=h.useCallback(e=>{let{pulsate:t,rippleX:n,rippleY:i,rippleSize:a,cb:o}=e;s(e=>[...e,(0,y.jsx)(se,{classes:{ripple:l(r.ripple,J.ripple),rippleVisible:l(r.rippleVisible,J.rippleVisible),ripplePulsate:l(r.ripplePulsate,J.ripplePulsate),child:l(r.child,J.child),childLeaving:l(r.childLeaving,J.childLeaving),childPulsate:l(r.childPulsate,J.childPulsate)},timeout:Y,pulsate:t,rippleX:n,rippleY:i,rippleSize:a},c.current)]),c.current+=1,d.current=o},[r]),v=h.useCallback((e={},t={},r=()=>{})=>{let{pulsate:i=!1,center:a=n||t.pulsate,fakeElement:o=!1}=t;if(e?.type===`mousedown`&&f.current){f.current=!1;return}e?.type===`touchstart`&&(f.current=!0);let s=o?null:g.current,c=s?s.getBoundingClientRect():{width:0,height:0,left:0,top:0},l,u,d;if(a||e===void 0||e.clientX===0&&e.clientY===0||!e.clientX&&!e.touches)l=Math.round(c.width/2),u=Math.round(c.height/2);else{let{clientX:t,clientY:n}=e.touches&&e.touches.length>0?e.touches[0]:e;l=Math.round(t-c.left),u=Math.round(n-c.top)}if(a)d=Math.sqrt((2*c.width**2+c.height**2)/3),d%2==0&&(d+=1);else{let e=Math.max(Math.abs((s?s.clientWidth:0)-l),l)*2+2,t=Math.max(Math.abs((s?s.clientHeight:0)-u),u)*2+2;d=Math.sqrt(e**2+t**2)}e?.touches?m.current===null&&(m.current=()=>{_({pulsate:i,rippleX:l,rippleY:u,rippleSize:d,cb:r})},p.start(80,()=>{m.current&&=(m.current(),null)})):_({pulsate:i,rippleX:l,rippleY:u,rippleSize:d,cb:r})},[n,_,p]),b=h.useCallback(()=>{v({},{pulsate:!0})},[v]),x=h.useCallback((e,t)=>{if(p.clear(),e?.type===`touchend`&&m.current){m.current(),m.current=null,p.start(0,()=>{x(e,t)});return}m.current=null,s(e=>e.length>0?e.slice(1):e),d.current=t},[p]);return h.useImperativeHandle(t,()=>({pulsate:b,start:v,stop:x}),[b,v,x]),(0,y.jsx)(X,{className:l(J.root,r.root,i),ref:g,...a,children:(0,y.jsx)(H,{component:null,exit:!0,children:o})})});function le(e){return m(`MuiButtonBase`,e)}var Z=d(`MuiButtonBase`,[`root`,`disabled`,`focusVisible`]),ue=e=>{let{disabled:t,focusVisible:n,focusVisibleClassName:r,classes:i}=e,a=f({root:[`root`,t&&`disabled`,n&&`focusVisible`]},le,i);return n&&r&&(a.root+=` ${r}`),a},de=a(`button`,{name:`MuiButtonBase`,slot:`Root`})({display:`inline-flex`,alignItems:`center`,justifyContent:`center`,position:`relative`,boxSizing:`border-box`,WebkitTapHighlightColor:`transparent`,backgroundColor:`transparent`,outline:0,border:0,margin:0,borderRadius:0,padding:0,cursor:`pointer`,userSelect:`none`,verticalAlign:`middle`,MozAppearance:`none`,WebkitAppearance:`none`,textDecoration:`none`,color:`inherit`,"&::-moz-focus-inner":{borderStyle:`none`},[`&.${Z.disabled}`]:{pointerEvents:`none`,cursor:`default`},"@media print":{colorAdjust:`exact`}}),Q=h.forwardRef(function(e,t){let n=u({props:e,name:`MuiButtonBase`}),{action:r,centerRipple:i=!1,children:a,className:o,component:s=`button`,disabled:c=!1,disableRipple:d=!1,disableTouchRipple:f=!1,focusRipple:p=!1,focusVisibleClassName:m,LinkComponent:g=`a`,onBlur:_,onClick:v,onContextMenu:b,onDragLeave:x,onFocus:S,onFocusVisible:C,onKeyDown:w,onKeyUp:E,onMouseDown:k,onMouseLeave:A,onMouseUp:ee,onTouchEnd:ne,onTouchMove:j,onTouchStart:M,tabIndex:N=0,TouchRippleProps:P,touchRippleRef:F,type:I,...L}=n,R=h.useRef(null),z=te(),re=D(z.ref,F),[B,V]=h.useState(!1);c&&B&&V(!1),h.useImperativeHandle(r,()=>({focusVisible:()=>{V(!0),R.current.focus()}}),[]);let H=z.shouldMount&&!d&&!c;h.useEffect(()=>{B&&p&&!d&&z.pulsate()},[d,p,B,z]);let U=$(z,`start`,k,f),W=$(z,`stop`,b,f),G=$(z,`stop`,x,f),K=$(z,`stop`,ee,f),q=$(z,`stop`,e=>{B&&e.preventDefault(),A&&A(e)},f),J=$(z,`start`,M,f),Y=$(z,`stop`,ne,f),ie=$(z,`stop`,j,f),ae=$(z,`stop`,e=>{O(e.target)||V(!1),_&&_(e)},!1),oe=T(e=>{R.current||=e.currentTarget,O(e.target)&&(V(!0),C&&C(e)),S&&S(e)}),X=()=>{let e=R.current;return e?e.tagName!==`BUTTON`&&!(e.tagName===`A`&&e.href):s&&s!==`button`},se=T(e=>{p&&!e.repeat&&B&&e.key===` `&&z.stop(e,()=>{z.start(e)}),e.target===e.currentTarget&&X()&&e.key===` `&&e.preventDefault(),w&&w(e),e.target===e.currentTarget&&X()&&e.key===`Enter`&&!c&&(e.preventDefault(),v&&v(e))}),le=T(e=>{p&&e.key===` `&&B&&!e.defaultPrevented&&z.stop(e,()=>{z.pulsate(e)}),E&&E(e),v&&e.target===e.currentTarget&&X()&&e.key===` `&&!e.defaultPrevented&&!c&&v(e)}),Z=s;Z===`button`&&(L.href||L.to)&&(Z=g);let Q={};if(Z===`button`){let e=!!L.formAction;Q.type=I===void 0&&!e?`button`:I,Q.disabled=c}else!L.href&&!L.to&&(Q.role=`button`),c&&(Q[`aria-disabled`]=c);let fe=D(t,R),pe={...n,centerRipple:i,component:s,disabled:c,disableRipple:d,disableTouchRipple:f,focusRipple:p,tabIndex:N,focusVisible:B},me=ue(pe);return(0,y.jsxs)(de,{as:Z,className:l(me.root,o),ownerState:pe,onBlur:ae,onClick:v,onContextMenu:W,onFocus:oe,onKeyDown:se,onKeyUp:le,onMouseDown:U,onMouseLeave:q,onMouseUp:K,onDragLeave:G,onTouchEnd:Y,onTouchMove:ie,onTouchStart:J,ref:fe,tabIndex:c?-1:N,type:I,...Q,...L,children:[a,H?(0,y.jsx)(ce,{ref:re,center:i,...P}):null]})});function $(e,t,n,r=!1){return T(i=>(n&&n(i),r||e[t](i),!0))}export{N as a,D as c,w as d,C as f,g as h,P as i,E as l,_ as m,G as n,j as o,S as p,K as r,O as s,Q as t,T as u};
+//# sourceMappingURL=ButtonBase-CZcTjP7H.js.map
