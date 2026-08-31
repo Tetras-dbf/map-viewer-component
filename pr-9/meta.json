@@ -1,0 +1,9 @@
+{
+  "label": "PR #9",
+  "branch": "feat/deploy-demo-pages",
+  "commit": "5fbc8045f32bca05b86da65c55cffc11282f9bc0",
+  "commit_url": "https://github.com/Tetras-dfb/map-viewer-component/commit/5fbc8045f32bca05b86da65c55cffc11282f9bc0",
+  "commit_message": "fix: build mirador before the demo build in CI (not just npm ci)",
+  "date": "2026-08-31T21:23:36+02:00",
+  "pr_url": "https://github.com/Tetras-dfb/map-viewer-component/pull/9"
+}
