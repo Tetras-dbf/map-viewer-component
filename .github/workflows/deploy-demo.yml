@@ -49,6 +49,8 @@ jobs:
           node-version-file: map-viewer-component/.nvmrc
       - run: npm ci
         working-directory: mirador
+      - run: npm run build
+        working-directory: mirador
       - run: npm ci
         working-directory: map-viewer-component
       - name: Build demo
@@ -101,6 +103,8 @@ jobs:
         with:
           node-version-file: map-viewer-component/.nvmrc
       - run: npm ci
+        working-directory: mirador
+      - run: npm run build
         working-directory: mirador
       - run: npm ci
         working-directory: map-viewer-component
