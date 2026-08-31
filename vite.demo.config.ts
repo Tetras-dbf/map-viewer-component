@@ -11,5 +11,11 @@ export default defineConfig({
     sourcemap: true,
   },
   plugins: [react()],
+  resolve: {
+    // See vite.config.ts: `mirador` resolves via a `file:../mirador` symlink to a
+    // sibling submodule with its own react/react-dom copies. Dedupe keeps the
+    // static demo bundle from including two React instances.
+    dedupe: ['react', 'react-dom'],
+  },
   root: fileURLToPath(new URL('./demo', import.meta.url)),
 });
