@@ -1,5 +1,5 @@
 {
-  "name": "@tetras-dfb/map-viewer-component",
+  "name": "@tetras-dbf/map-viewer-component",
   "version": "0.1.0",
   "private": true,
   "description": "React component wrapping Mirador to display IIIF maps and manifests in the front office.",
