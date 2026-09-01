@@ -1,9 +1,9 @@
 {
   "label": "main",
   "branch": "main",
-  "commit": "dd3b9352eabfe3d52da2383340a62b39571e8c0c",
-  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/dd3b9352eabfe3d52da2383340a62b39571e8c0c",
-  "commit_message": "chore(readme) : update demo link",
-  "date": "2026-09-01T09:53:44+02:00",
+  "commit": "dd69a71117d9c3028f8d206d56be40b3c7b228d6",
+  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/dd69a71117d9c3028f8d206d56be40b3c7b228d6",
+  "commit_message": "Merge pull request #10 from Tetras-dbf/fix/org-rename-references",
+  "date": "2026-09-01T10:24:44+02:00",
   "pr_url": null
 }
