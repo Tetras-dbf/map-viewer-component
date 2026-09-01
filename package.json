@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tetras-dfb/map-viewer-component.git"
+    "url": "git+https://github.com/Tetras-dbf/map-viewer-component.git"
   },
   "scripts": {
     "start": "vite",
