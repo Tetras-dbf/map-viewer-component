@@ -6,9 +6,9 @@
 #   /            - a landing page listing main + every live PR preview,
 #                  regenerated after every deploy/removal above
 #
-# mirador isn't published to npm yet (Tetras-dfb/mirador#1), so this
+# mirador isn't published to npm yet (Tetras-dbf/mirador#1), so this
 # package depends on it via a local "file:../mirador" path — every job
-# that builds the demo also checks out Tetras-dfb/mirador into a sibling
+# that builds the demo also checks out Tetras-dbf/mirador into a sibling
 # directory first, same as ci.yml does.
 #
 # Security note: this workflow has `contents: write` (it pushes to
@@ -42,7 +42,7 @@ jobs:
           path: map-viewer-component
       - uses: actions/checkout@v7
         with:
-          repository: Tetras-dfb/mirador
+          repository: Tetras-dbf/mirador
           path: mirador
       - uses: actions/setup-node@v7
         with:
@@ -57,8 +57,7 @@ jobs:
         working-directory: map-viewer-component
         env:
           GITHUB_PAGES: "true"
-          BASE_PATH: /main/
-        run: npm run build:demo
+        run: BASE_PATH="/${GITHUB_REPOSITORY#*/}/main/" npm run build:demo
       - name: Write meta.json
         working-directory: map-viewer-component
         env:
@@ -97,7 +96,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/checkout@v7
         with:
-          repository: Tetras-dfb/mirador
+          repository: Tetras-dbf/mirador
           path: mirador
       - uses: actions/setup-node@v7
         with:
@@ -112,7 +111,7 @@ jobs:
         working-directory: map-viewer-component
         env:
           GITHUB_PAGES: "true"
-        run: BASE_PATH="/pr-${PR_NUMBER}/" npm run build:demo
+        run: BASE_PATH="/${GITHUB_REPOSITORY#*/}/pr-${PR_NUMBER}/" npm run build:demo
       - name: Write meta.json
         working-directory: map-viewer-component
         env:

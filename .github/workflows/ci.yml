@@ -1,7 +1,7 @@
-# mirador isn't published to npm yet (Tetras-dfb/mirador#1 is open), so this
+# mirador isn't published to npm yet (Tetras-dbf/mirador#1 is open), so this
 # package depends on it via a local "file:../mirador" path. To make that
 # resolve on a CI runner (which only checks out this repo by default), every
-# job here also checks out Tetras-dfb/mirador into a sibling directory and
+# job here also checks out Tetras-dbf/mirador into a sibling directory and
 # installs its dependencies before installing this package's.
 name: CI
 
@@ -19,7 +19,7 @@ jobs:
           path: map-viewer-component
       - uses: actions/checkout@v7
         with:
-          repository: Tetras-dfb/mirador
+          repository: Tetras-dbf/mirador
           path: mirador
       - uses: actions/setup-node@v7
         with:
@@ -39,7 +39,7 @@ jobs:
           path: map-viewer-component
       - uses: actions/checkout@v7
         with:
-          repository: Tetras-dfb/mirador
+          repository: Tetras-dbf/mirador
           path: mirador
       - uses: actions/setup-node@v7
         with:
@@ -59,7 +59,7 @@ jobs:
           path: map-viewer-component
       - uses: actions/checkout@v7
         with:
-          repository: Tetras-dfb/mirador
+          repository: Tetras-dbf/mirador
           path: mirador
       - uses: actions/setup-node@v7
         with:
