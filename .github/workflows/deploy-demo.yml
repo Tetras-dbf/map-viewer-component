@@ -1,0 +1,170 @@
+# Deploys the demo app (npm run build:demo) to GitHub Pages, on the
+# gh-pages branch:
+#   /main/       - redeployed on every push to main
+#   /pr-<n>/     - redeployed on every push to an open PR's branch,
+#                  removed when that PR closes
+#   /            - a landing page listing main + every live PR preview,
+#                  regenerated after every deploy/removal above
+#
+# mirador isn't published to npm yet (Tetras-dfb/mirador#1), so this
+# package depends on it via a local "file:../mirador" path — every job
+# that builds the demo also checks out Tetras-dfb/mirador into a sibling
+# directory first, same as ci.yml does.
+#
+# Security note: this workflow has `contents: write` (it pushes to
+# gh-pages) and runs on `pull_request`, so PR-controlled values (branch
+# name, commit message, etc.) are NEVER interpolated directly into a
+# `run:` script body — they're passed through `env:` and read back as
+# shell/Node variables. A branch or commit message containing shell
+# metacharacters must not be able to execute as code on this runner.
+name: Deploy demo pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-main:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: map-viewer-component
+      - uses: actions/checkout@v7
+        with:
+          repository: Tetras-dfb/mirador
+          path: mirador
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: map-viewer-component/.nvmrc
+      - run: npm ci
+        working-directory: mirador
+      - run: npm run build
+        working-directory: mirador
+      - run: npm ci
+        working-directory: map-viewer-component
+      - name: Build demo
+        working-directory: map-viewer-component
+        env:
+          GITHUB_PAGES: "true"
+          BASE_PATH: /main/
+        run: npm run build:demo
+      - name: Write meta.json
+        working-directory: map-viewer-component
+        env:
+          LABEL: main
+          BRANCH: main
+        run: node scripts/write-deploy-meta.mjs dist-demo/meta.json
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: map-viewer-component/dist-demo
+          destination_dir: main
+          keep_files: true
+      - name: Regenerate landing page
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone --branch gh-pages --single-branch "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages-checkout
+          node map-viewer-component/scripts/generate-pages-index.mjs gh-pages-checkout
+          cd gh-pages-checkout
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "chore: regenerate pages index"
+          git push
+
+  deploy-pr-preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: map-viewer-component
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/checkout@v7
+        with:
+          repository: Tetras-dfb/mirador
+          path: mirador
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: map-viewer-component/.nvmrc
+      - run: npm ci
+        working-directory: mirador
+      - run: npm run build
+        working-directory: mirador
+      - run: npm ci
+        working-directory: map-viewer-component
+      - name: Build demo
+        working-directory: map-viewer-component
+        env:
+          GITHUB_PAGES: "true"
+        run: BASE_PATH="/pr-${PR_NUMBER}/" npm run build:demo
+      - name: Write meta.json
+        working-directory: map-viewer-component
+        env:
+          LABEL: "PR #${{ github.event.pull_request.number }}"
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: node scripts/write-deploy-meta.mjs dist-demo/meta.json
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: map-viewer-component/dist-demo
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          keep_files: true
+      - name: Regenerate landing page
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone --branch gh-pages --single-branch "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages-checkout
+          node map-viewer-component/scripts/generate-pages-index.mjs gh-pages-checkout
+          cd gh-pages-checkout
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "chore: regenerate pages index"
+          git push
+
+  cleanup-pr-preview:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: map-viewer-component
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: map-viewer-component/.nvmrc
+      - name: Remove preview and regenerate landing page
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone --branch gh-pages --single-branch "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages-checkout
+          cd gh-pages-checkout
+          git rm -r --ignore-unmatch "pr-${PR_NUMBER}"
+          cd ..
+          node map-viewer-component/scripts/generate-pages-index.mjs gh-pages-checkout
+          cd gh-pages-checkout
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: remove preview for closed PR #${PR_NUMBER}"
+          git push

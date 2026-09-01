@@ -7,7 +7,7 @@ import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import { fixupPluginRules } from '@eslint/compat';
 
 export default tseslint.config(
-  { ignores: ['dist/**', 'dist-demo/**', 'node_modules/**'] },
+  { ignores: ['dist/**', 'dist-demo/**', 'node_modules/**', 'scripts/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
