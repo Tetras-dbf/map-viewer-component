@@ -1,9 +1,9 @@
 {
   "label": "PR #10",
   "branch": "fix/org-rename-references",
-  "commit": "a821c4a8d093d05239eee52e97448da902f328ce",
-  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/a821c4a8d093d05239eee52e97448da902f328ce",
-  "commit_message": "fix: update stale Tetras-dfb org references to Tetras-dbf",
-  "date": "2026-09-01T09:57:32+02:00",
+  "commit": "4524de64b3507afa2c5543eb01ce6f03682978c7",
+  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/4524de64b3507afa2c5543eb01ce6f03682978c7",
+  "commit_message": "fix: rename npm package scope to @tetras-dbf to match README",
+  "date": "2026-09-01T09:59:44+02:00",
   "pr_url": "https://github.com/Tetras-dbf/map-viewer-component/pull/10"
 }
