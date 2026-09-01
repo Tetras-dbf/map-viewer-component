@@ -1,9 +1,0 @@
-{
-  "label": "PR #10",
-  "branch": "fix/org-rename-references",
-  "commit": "4a17e4be9cc9a68287474f6d3c47be4d0ad812c0",
-  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/4a17e4be9cc9a68287474f6d3c47be4d0ad812c0",
-  "commit_message": "fix: include repo name in BASE_PATH so demo assets actually resolve",
-  "date": "2026-09-01T10:09:57+02:00",
-  "pr_url": "https://github.com/Tetras-dbf/map-viewer-component/pull/10"
-}
