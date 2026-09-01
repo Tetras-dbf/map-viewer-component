@@ -7,7 +7,7 @@ describe('buildMeta', () => {
       label: 'main',
       branch: 'main',
       prUrl: undefined,
-      repository: 'Tetras-dfb/map-viewer-component',
+      repository: 'Tetras-dbf/map-viewer-component',
       commit: 'abc1234567',
       date: '2026-09-01T00:00:00+00:00',
       commitMessage: 'Add demo pages',
@@ -17,7 +17,7 @@ describe('buildMeta', () => {
       label: 'main',
       branch: 'main',
       commit: 'abc1234567',
-      commit_url: 'https://github.com/Tetras-dfb/map-viewer-component/commit/abc1234567',
+      commit_url: 'https://github.com/Tetras-dbf/map-viewer-component/commit/abc1234567',
       commit_message: 'Add demo pages',
       date: '2026-09-01T00:00:00+00:00',
       pr_url: null,
@@ -28,14 +28,14 @@ describe('buildMeta', () => {
     const meta = buildMeta({
       label: 'PR #42',
       branch: 'feat/demo-pages',
-      prUrl: 'https://github.com/Tetras-dfb/map-viewer-component/pull/42',
-      repository: 'Tetras-dfb/map-viewer-component',
+      prUrl: 'https://github.com/Tetras-dbf/map-viewer-component/pull/42',
+      repository: 'Tetras-dbf/map-viewer-component',
       commit: 'def7890123',
       date: '2026-09-02T00:00:00+00:00',
       commitMessage: 'Add preview',
     });
 
-    expect(meta.pr_url).toBe('https://github.com/Tetras-dfb/map-viewer-component/pull/42');
+    expect(meta.pr_url).toBe('https://github.com/Tetras-dbf/map-viewer-component/pull/42');
   });
 
   it('throws when label is missing', () => {
@@ -44,7 +44,7 @@ describe('buildMeta', () => {
         label: undefined,
         branch: 'main',
         prUrl: undefined,
-        repository: 'Tetras-dfb/map-viewer-component',
+        repository: 'Tetras-dbf/map-viewer-component',
         commit: 'abc',
         date: '2026-01-01T00:00:00Z',
         commitMessage: 'x',
