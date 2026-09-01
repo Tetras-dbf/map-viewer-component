@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
-  base: process.env.GITHUB_PAGES ? `/${pkg.name.split('/').pop()}/` : '/',
+  base: process.env.GITHUB_PAGES ? (process.env.BASE_PATH || `/${pkg.name.split('/').pop()}/`) : '/',
   build: {
     emptyOutDir: true,
     outDir: fileURLToPath(new URL('./dist-demo', import.meta.url)),
