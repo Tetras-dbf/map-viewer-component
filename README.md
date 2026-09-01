@@ -1,11 +1,11 @@
-# @tetras-dfb/map-viewer-component
+# @tetras-dbf/map-viewer-component
 
 React component wrapping [Mirador](https://github.com/ProjectMirador/mirador) to display IIIF maps and manifests in the front office.
 
 ## Usage
 
 ```tsx
-import { MapViewer } from '@tetras-dfb/map-viewer-component';
+import { MapViewer } from '@tetras-dbf/map-viewer-component';
 
 function App() {
   return <MapViewer manifestId="https://example.org/manifest.json" />;
@@ -16,7 +16,7 @@ function App() {
 
 ## Development
 
-This package is developed inside the `Tetras-dfb/root_repo` monorepo, as a sibling
+This package is developed inside the `Tetras-dbf/root_repo` monorepo, as a sibling
 of the `mirador` submodule it depends on. `mirador` isn't published to npm yet
 (tracked in `mirador#1`), so this package resolves it via a local path
 (`"mirador": "file:../mirador"`).
