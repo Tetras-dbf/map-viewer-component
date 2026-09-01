@@ -1,0 +1,9 @@
+{
+  "label": "PR #10",
+  "branch": "fix/org-rename-references",
+  "commit": "a821c4a8d093d05239eee52e97448da902f328ce",
+  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/a821c4a8d093d05239eee52e97448da902f328ce",
+  "commit_message": "fix: update stale Tetras-dfb org references to Tetras-dbf",
+  "date": "2026-09-01T09:57:32+02:00",
+  "pr_url": "https://github.com/Tetras-dbf/map-viewer-component/pull/10"
+}
