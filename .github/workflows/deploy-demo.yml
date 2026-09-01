@@ -57,8 +57,7 @@ jobs:
         working-directory: map-viewer-component
         env:
           GITHUB_PAGES: "true"
-          BASE_PATH: /main/
-        run: npm run build:demo
+        run: BASE_PATH="/${GITHUB_REPOSITORY#*/}/main/" npm run build:demo
       - name: Write meta.json
         working-directory: map-viewer-component
         env:
@@ -112,7 +111,7 @@ jobs:
         working-directory: map-viewer-component
         env:
           GITHUB_PAGES: "true"
-        run: BASE_PATH="/pr-${PR_NUMBER}/" npm run build:demo
+        run: BASE_PATH="/${GITHUB_REPOSITORY#*/}/pr-${PR_NUMBER}/" npm run build:demo
       - name: Write meta.json
         working-directory: map-viewer-component
         env:
