@@ -2,6 +2,9 @@
 
 React component wrapping [Mirador](https://github.com/ProjectMirador/mirador) to display IIIF maps and manifests in the front office.
 
+A demo is available at [https://tetras-dbf.github.io/map-viewer-component](https://tetras-dbf.github.io/map-viewer-component).
+
+
 ## Usage
 
 ```tsx
