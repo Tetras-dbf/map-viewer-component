@@ -1,9 +1,9 @@
 {
   "label": "main",
   "branch": "main",
-  "commit": "86395225180cd7cfd42968338bb39a120222ef0c",
-  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/86395225180cd7cfd42968338bb39a120222ef0c",
-  "commit_message": "chore(dbf) : Fix dbf instead dfb",
-  "date": "2026-09-01T14:34:32+02:00",
+  "commit": "17721c5e7152417e6aa44721cef7839f3cca01d2",
+  "commit_url": "https://github.com/Tetras-dbf/map-viewer-component/commit/17721c5e7152417e6aa44721cef7839f3cca01d2",
+  "commit_message": "fix: rename package to dbf-map-viewer-component",
+  "date": "2026-09-02T12:16:25+02:00",
   "pr_url": null
 }
