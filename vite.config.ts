@@ -19,18 +19,18 @@ export default defineConfig({
         ...peers,
         /^react(\/.*)?$/,
         /^react-dom(\/.*)?$/,
-        /^mirador(\/.*)?$/,
+        /^dbf-mirador(\/.*)?$/,
       ],
       output: {
         exports: 'named',
-        globals: { react: 'React', 'react-dom': 'ReactDOM', mirador: 'Mirador' },
+        globals: { react: 'React', 'react-dom': 'ReactDOM', 'dbf-mirador': 'Mirador' },
       },
     },
     sourcemap: true,
   },
   plugins: [react(), dts({ include: ['src'], rollupTypes: true })],
   resolve: {
-    // `mirador` resolves via a `file:../mirador` symlink to a sibling submodule
+    // `dbf-mirador` resolves via a `file:../mirador` symlink to a sibling submodule
     // that has its own node_modules (with its own react/react-dom copies for its
     // own tooling). Without dedupe, Vite's default (non-preserveSymlinks) module
     // resolution picks mirador's own react copy instead of this package's,

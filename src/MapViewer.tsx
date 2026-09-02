@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef } from 'react';
-import Mirador from 'mirador';
+import Mirador from 'dbf-mirador';
 
 export interface MapViewerProps {
   manifestId: string;
