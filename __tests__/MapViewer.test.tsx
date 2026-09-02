@@ -2,12 +2,12 @@ import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { Mock } from 'vitest';
 
-vi.mock('mirador', () => ({
+vi.mock('dbf-mirador', () => ({
   default: { viewer: vi.fn(() => ({ unmount: vi.fn() })) },
 }));
 
 import { MapViewer } from '../src/index';
-import Mirador from 'mirador';
+import Mirador from 'dbf-mirador';
 
 const viewerMock = Mirador.viewer as unknown as Mock;
 

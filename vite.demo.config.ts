@@ -12,7 +12,7 @@ export default defineConfig({
   },
   plugins: [react()],
   resolve: {
-    // See vite.config.ts: `mirador` resolves via a `file:../mirador` symlink to a
+    // See vite.config.ts: `dbf-mirador` resolves via a `file:../mirador` symlink to a
     // sibling submodule with its own react/react-dom copies. Dedupe keeps the
     // static demo bundle from including two React instances.
     dedupe: ['react', 'react-dom'],

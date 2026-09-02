@@ -30,7 +30,7 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "mirador": ">=4.2.3",
+    "dbf-mirador": ">=4.2.3",
     "react": ">=19",
     "react-dom": ">=19"
   },
@@ -48,7 +48,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.11.0",
     "jsdom": "^30.0.1",
-    "mirador": "file:../mirador",
+    "dbf-mirador": "file:../mirador",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "typescript": "6.0.3",
